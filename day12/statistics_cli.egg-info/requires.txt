@@ -1,0 +1,6 @@
+faker>=18.0.0
+
+[dev]
+pytest>=8.0.0
+black>=24.0.0
+isort>=5.0.0

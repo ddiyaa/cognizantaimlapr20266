@@ -1,0 +1,6 @@
+pyproject.toml
+statistics_cli.egg-info/PKG-INFO
+statistics_cli.egg-info/SOURCES.txt
+statistics_cli.egg-info/dependency_links.txt
+statistics_cli.egg-info/requires.txt
+statistics_cli.egg-info/top_level.txt

@@ -9,6 +9,7 @@ src/bankingapp/main.py
 src/bankingapp/configurations/__init__.py
 src/bankingapp/configurations/conf.py
 src/bankingapp/configurations/mongodb_conn.py
+src/bankingapp/configurations/redis_client.py
 src/bankingapp/controllers/__init__.py
 src/bankingapp/controllers/account_controller.py
 src/bankingapp/controllers/transaction_controller.py
@@ -30,3 +31,4 @@ src/bankingapp/services/account_service_impl.py
 src/bankingapp/services/transaction_service.py
 src/bankingapp/services/transaction_service_impl.py
 tests/test_mongo_conn.py
+tests/test_redis_client.py

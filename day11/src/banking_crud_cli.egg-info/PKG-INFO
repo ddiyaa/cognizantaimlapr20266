@@ -16,6 +16,7 @@ Requires-Dist: uvicorn>=0.15.0
 Requires-Dist: certifi>=2021.10.8
 Requires-Dist: hvac>=0.1.0
 Requires-Dist: redis>=4.0.0
+Requires-Dist: tenacity>=8.0.0
 Provides-Extra: dev
 Requires-Dist: pytest>=8.0.0; extra == "dev"
 Requires-Dist: black>=24.0.0; extra == "dev"
