@@ -1,8 +1,11 @@
 import statistics
 import pandas as pd
+import numpy as np
 from scipy.stats import skew, kurtosis
+from distapp.configurations.config import Config
+config=Config()
 def calculate_statistics():
-    df=pd.read_csv("src/distapp/resources/trainees_score.csv")
+    df=pd.read_csv(config.csv_path)
     #mean of the scores
     mean_score=statistics.mean(df["Score"])
     #median of the scores
@@ -35,9 +38,16 @@ if __name__ == "__main__":
     print(f"Kurtosis: {kurtosis}")
 
     import matplotlib.pyplot as plt
-    df=pd.read_csv("src/distapp/resources/trainees_score.csv")
+    df=pd.read_csv(config.csv_path)
     plt.figure(figsize=(10,6))
     plt.plot(df["Score"], marker='o')
+    plt.axhline(mean, color='r', linestyle='--', label=f'Mean: {mean:.2f}')
+    plt.legend()
+    plt.axhline(median, color='g', linestyle='--', label=f'Median: {median:.2f}')
+    plt.legend()
+    plt.axhline(mode, color='b', linestyle='--', label=f'Mode: {mode:.2f}')
+    plt.legend()    
+    
     plt.title("Distribution of Trainees Scores")    
     plt.xlabel("Trainee Index")
     plt.ylabel("Score")

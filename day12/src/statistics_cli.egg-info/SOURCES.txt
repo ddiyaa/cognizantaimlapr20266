@@ -1,5 +1,7 @@
 pyproject.toml
 src/distapp/__init__.py
+src/distapp/configurations/__init__.py
+src/distapp/configurations/config.py
 src/distapp/resources/__init__.py
 src/distapp/utils/__init__.py
 src/distapp/utils/random_variable.py

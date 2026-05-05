@@ -1,16 +1,19 @@
 #create random variable
 import random
 import pandas as pd
+from distapp.configurations.config import Config
+
+config = Config()
 
 def create_discrete_random_variable():
    #create random variable
-   df = pd.read_csv("src/distapp/resources/trainees_score.csv")
+   df = pd.read_csv(config.csv_path)
    #create discrete random variable
    random_variable = df['Score'].sample(n=5).tolist()
    return random_variable
 def create_continuous_random_variable():
    #create continuous random variable
-   df = pd.read_csv("src/distapp/resources/trainees_score.csv")
+   df = pd.read_csv(config.csv_path)
    min_score = df['Score'].min()
    max_score = df['Score'].max()
    random_variable = [_ for _ in range(min_score, max_score+1, 5)]
