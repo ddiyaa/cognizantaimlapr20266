@@ -8,4 +8,4 @@ class Config:
         self.csv_path = os.getenv('csv_path')
         self.api_requests_csv_path = os.getenv('api_requests_csv_path')
         self.delivery_time_csv_path = os.getenv('delivery_time_csv_path')   
-    
+        self.sip_path = os.getenv('sip_path')
