@@ -8,22 +8,24 @@ def create_exponential_distribution():
     config = Config()
     #load dataset
     df = pd.read_csv(config.exponential_path)
+    #range of years
+    t=np.arange(df['year'].min(), df['year'].max()+1, 1)
     #get population column
     population = df['population'].values
     #fit exponential distribution to data
     loc, scale = expon.fit(population)
     #generate random numbers from exponential distribution
     random_numbers = expon.rvs(loc=loc, scale=scale, size=1000)
-    return random_numbers
+    return random_numbers,t,population
 
-def draw_exponential_distribution(random_numbers):
-   
-    plt.hist(random_numbers, bins=30, density=True, alpha=0.6, color='g')
+def draw_exponential_distribution(random_numbers,t,population):
+    plt.figure(figsize=(10, 6))    
+    plt.plot(t, population, marker='o', linestyle='-', color='b')
     plt.title('Exponential Distribution')
-    plt.xlabel('Value')
+    plt.xlabel('year')
     plt.ylabel('Density')
     plt.show()
 
 if __name__ == "__main__":
-    random_numbers = create_exponential_distribution()
-    draw_exponential_distribution(random_numbers)
+    random_numbers, t, population = create_exponential_distribution()
+    draw_exponential_distribution(random_numbers,t,population)
