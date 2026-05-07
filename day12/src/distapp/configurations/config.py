@@ -16,3 +16,4 @@ class Config:
         self.exponential_path = os.getenv('exponential_path')
         self.estimation_path = os.getenv('estimation_path')
         self.effectiveness_path = os.getenv('effectiveness_path')
+        self.hypothesis_path = os.getenv('hypothesis_path')
