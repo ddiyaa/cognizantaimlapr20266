@@ -13,6 +13,8 @@ Requires-Dist: matplotlib>=3.0.0
 Requires-Dist: seaborn>=0.12.0
 Requires-Dist: python-dotenv>=0.20.0
 Requires-Dist: scikit-learn>=1.0.0
+Requires-Dist: statsmodels>=0.14.0
+Requires-Dist: statsig>=0.1.0
 Provides-Extra: dev
 Requires-Dist: pytest>=8.0.0; extra == "dev"
 Requires-Dist: black>=24.0.0; extra == "dev"

@@ -4,8 +4,17 @@ src/distapp/configurations/__init__.py
 src/distapp/configurations/config.py
 src/distapp/resources/__init__.py
 src/distapp/utils/__init__.py
+src/distapp/utils/abtest.py
+src/distapp/utils/abtest_tool.py
 src/distapp/utils/bernoulli_dist.py
+src/distapp/utils/binomial_dist.py
 src/distapp/utils/cdf.py
+src/distapp/utils/effect_demo.py
+src/distapp/utils/estimation.py
+src/distapp/utils/exponential_dist.py
+src/distapp/utils/hypothesis_demo.py
+src/distapp/utils/normal_dist.py
+src/distapp/utils/poisson_dist.py
 src/distapp/utils/prob_density_func.py
 src/distapp/utils/prob_mass_func.py
 src/distapp/utils/random_variable.py
