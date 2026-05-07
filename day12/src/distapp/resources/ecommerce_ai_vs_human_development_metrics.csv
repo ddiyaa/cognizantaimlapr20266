@@ -1,0 +1,101 @@
+task_id,date,application,feature,module,complexity,developer_type,coding_standard_score,logic_score,errors_found,development_time_hours,rework_hours,test_coverage_percent,productivity_score,status
+ECOM-001,2026-04-07,Ecommerce Application,User Registration,Testing,Medium,AI Assisted,96.3,79.6,3,9.3,1.3,74.8,77.8,Completed
+ECOM-002,2026-04-11,Ecommerce Application,Analytics Dashboard,Backend,High,AI Assisted,95.0,78.1,12,22.2,11.5,88.2,77.6,In Review
+ECOM-003,2026-04-30,Ecommerce Application,Order Management,DevOps,Medium,AI Assisted,91.7,92.5,6,6.4,5.0,85.5,83.5,Rework Required
+ECOM-004,2026-04-08,Ecommerce Application,Analytics Dashboard,Database,High,AI Assisted,82.7,82.1,12,24.7,5.6,70.1,71.4,Completed
+ECOM-005,2026-04-06,Ecommerce Application,Admin Dashboard,API,High,Human Only,74.4,88.4,13,42.4,11.5,70.9,68.6,Completed
+ECOM-006,2026-04-13,Ecommerce Application,Delivery Tracking,API,Medium,AI Assisted,94.3,79.0,5,13.1,5.2,88.8,79.2,In Review
+ECOM-007,2026-04-09,Ecommerce Application,Order Management,Security,High,AI Assisted,89.3,82.8,16,18.7,13.6,68.6,74.2,Rework Required
+ECOM-008,2026-04-13,Ecommerce Application,Coupon Engine,Backend,Low,Human Only,71.7,69.0,1,8.2,0.9,72.2,66.4,Rework Required
+ECOM-009,2026-04-10,Ecommerce Application,Security Login,Database,High,Human Only,89.2,83.8,8,47.6,5.4,75.7,71.6,Rework Required
+ECOM-010,2026-04-17,Ecommerce Application,Delivery Tracking,Frontend,High,AI Assisted,90.1,79.9,11,32.6,11.8,81.9,74.0,Completed
+ECOM-011,2026-04-26,Ecommerce Application,Coupon Engine,DevOps,Low,AI Assisted,89.8,80.0,2,5.5,2.4,72.7,76.2,In Review
+ECOM-012,2026-05-01,Ecommerce Application,Product Catalog,Backend,High,AI Assisted,97.6,87.6,7,31.4,6.5,64.4,75.6,Completed
+ECOM-013,2026-04-12,Ecommerce Application,Security Login,DevOps,High,Human Only,84.6,82.8,19,38.9,17.8,61.0,68.2,Rework Required
+ECOM-014,2026-04-29,Ecommerce Application,Shopping Cart,Backend,Low,Human Only,73.3,66.8,1,4.8,0.6,70.2,66.2,Completed
+ECOM-015,2026-04-26,Ecommerce Application,Product Search,Security,Low,Human Only,90.5,79.3,3,5.5,3.1,63.9,74.4,Rework Required
+ECOM-016,2026-04-24,Ecommerce Application,Shopping Cart,Frontend,High,AI Assisted,82.9,89.8,15,20.6,6.7,82.6,77.2,In Review
+ECOM-017,2026-04-18,Ecommerce Application,Inventory Management,Backend,Low,AI Assisted,86.0,94.6,0,4.7,0.0,75.5,80.8,Completed
+ECOM-018,2026-04-13,Ecommerce Application,Analytics Dashboard,DevOps,Low,AI Assisted,85.4,85.2,1,5.8,0.7,62.1,74.5,In Review
+ECOM-019,2026-04-02,Ecommerce Application,Customer Reviews,API,High,Human Only,91.2,79.5,23,42.0,23.0,66.7,69.7,Completed
+ECOM-020,2026-04-19,Ecommerce Application,Security Login,DevOps,High,Human Only,69.6,86.5,9,30.7,10.4,61.2,66.3,Completed
+ECOM-021,2026-04-21,Ecommerce Application,Invoice Generation,Frontend,Medium,AI Assisted,92.7,83.7,5,11.1,2.5,69.3,76.8,In Review
+ECOM-022,2026-04-29,Ecommerce Application,Wishlist,DevOps,Low,Human Only,69.8,70.3,6,5.1,6.9,55.6,63.4,Completed
+ECOM-023,2026-04-10,Ecommerce Application,Coupon Engine,Database,Low,AI Assisted,97.8,89.8,2,4.7,2.1,60.3,79.6,Completed
+ECOM-024,2026-04-16,Ecommerce Application,Admin Dashboard,Frontend,Low,AI Assisted,93.5,81.7,1,5.2,0.6,82.2,79.8,In Review
+ECOM-025,2026-04-14,Ecommerce Application,Product Search,Testing,Medium,AI Assisted,92.2,82.7,2,11.0,1.7,85.9,79.6,Completed
+ECOM-026,2026-04-28,Ecommerce Application,Product Search,Testing,Low,AI Assisted,84.0,83.5,1,5.0,1.0,91.5,79.5,Completed
+ECOM-027,2026-04-28,Ecommerce Application,Order Management,Testing,Low,Human Only,77.8,80.5,3,9.4,3.4,51.2,67.8,Completed
+ECOM-028,2026-04-23,Ecommerce Application,Email Notification,Frontend,Low,AI Assisted,92.7,91.2,1,6.1,0.5,68.7,80.1,Completed
+ECOM-029,2026-04-09,Ecommerce Application,Product Catalog,DevOps,Medium,Human Only,88.9,70.6,13,13.0,9.3,71.4,71.2,Completed
+ECOM-030,2026-04-04,Ecommerce Application,Coupon Engine,Testing,High,Human Only,91.3,69.5,16,38.3,9.8,83.5,70.2,Rework Required
+ECOM-031,2026-04-18,Ecommerce Application,Wishlist,API,High,Human Only,74.1,82.7,14,46.2,16.0,45.1,60.8,Completed
+ECOM-032,2026-04-23,Ecommerce Application,Email Notification,Frontend,High,Human Only,89.6,77.7,16,48.9,10.6,71.7,68.6,In Review
+ECOM-033,2026-04-19,Ecommerce Application,Order Management,API,High,AI Assisted,90.8,78.0,6,30.2,4.5,70.0,71.5,In Review
+ECOM-034,2026-04-20,Ecommerce Application,Delivery Tracking,API,High,Human Only,85.7,81.5,33,31.7,30.7,56.4,68.3,In Review
+ECOM-035,2026-04-29,Ecommerce Application,Inventory Management,Testing,Medium,AI Assisted,97.7,89.0,2,7.4,1.5,86.9,84.2,Completed
+ECOM-036,2026-04-23,Ecommerce Application,Return Management,API,Low,Human Only,89.3,84.5,1,5.9,1.0,53.8,73.7,Rework Required
+ECOM-037,2026-04-24,Ecommerce Application,Analytics Dashboard,Backend,Low,AI Assisted,91.5,95.1,2,4.7,1.8,91.2,85.8,Rework Required
+ECOM-038,2026-04-23,Ecommerce Application,Payment Integration,Testing,Medium,Human Only,86.7,77.1,6,18.4,4.5,54.6,68.7,In Review
+ECOM-039,2026-04-18,Ecommerce Application,Admin Dashboard,Database,Medium,AI Assisted,93.1,90.7,2,12.1,1.5,62.2,77.8,Rework Required
+ECOM-040,2026-04-28,Ecommerce Application,Product Catalog,Backend,Medium,Human Only,77.1,65.1,4,17.6,4.0,59.1,62.6,Rework Required
+ECOM-041,2026-04-20,Ecommerce Application,Return Management,Backend,Medium,AI Assisted,94.8,91.0,2,9.7,2.3,89.4,84.2,Completed
+ECOM-042,2026-04-25,Ecommerce Application,Seller Module,Security,High,Human Only,69.2,74.5,23,21.4,15.2,53.5,61.8,Rework Required
+ECOM-043,2026-04-01,Ecommerce Application,Email Notification,Database,Low,Human Only,73.4,66.7,6,6.3,2.6,83.3,68.6,Completed
+ECOM-044,2026-04-20,Ecommerce Application,User Registration,Security,Low,AI Assisted,85.5,90.6,2,3.8,1.1,86.8,81.7,Completed
+ECOM-045,2026-04-27,Ecommerce Application,Customer Reviews,Frontend,High,AI Assisted,88.0,94.9,12,15.4,10.5,66.9,78.2,Completed
+ECOM-046,2026-04-21,Ecommerce Application,Customer Reviews,DevOps,High,AI Assisted,82.7,87.6,7,26.3,3.2,83.2,75.7,In Review
+ECOM-047,2026-04-09,Ecommerce Application,Email Notification,DevOps,Medium,AI Assisted,93.3,85.8,5,7.8,5.9,85.7,81.5,Rework Required
+ECOM-048,2026-04-20,Ecommerce Application,Email Notification,DevOps,High,Human Only,70.1,87.0,24,42.7,18.5,54.8,63.5,Rework Required
+ECOM-049,2026-04-17,Ecommerce Application,User Registration,API,Medium,Human Only,74.7,79.9,6,12.5,5.1,80.2,72.0,Completed
+ECOM-050,2026-04-23,Ecommerce Application,Inventory Management,Testing,Medium,AI Assisted,89.9,92.3,4,11.2,2.3,63.3,77.8,Completed
+ECOM-051,2026-04-04,Ecommerce Application,Seller Module,Database,Medium,Human Only,75.9,82.6,10,17.5,6.0,55.8,67.7,Completed
+ECOM-052,2026-04-04,Ecommerce Application,Shopping Cart,Testing,High,Human Only,74.6,79.7,17,42.4,14.9,75.4,66.5,Completed
+ECOM-053,2026-04-25,Ecommerce Application,Inventory Management,Database,Low,Human Only,69.3,72.3,3,5.5,2.7,82.8,69.3,Rework Required
+ECOM-054,2026-04-16,Ecommerce Application,User Registration,Security,Medium,AI Assisted,86.0,93.5,7,9.8,3.2,64.0,77.4,Completed
+ECOM-055,2026-04-17,Ecommerce Application,Checkout,Backend,High,AI Assisted,94.2,88.9,4,34.1,2.3,87.7,79.3,Rework Required
+ECOM-056,2026-04-09,Ecommerce Application,Delivery Tracking,Database,High,Human Only,91.0,67.5,14,49.2,12.6,75.5,66.1,Completed
+ECOM-057,2026-04-28,Ecommerce Application,Inventory Management,Backend,High,AI Assisted,89.5,78.6,5,15.3,3.1,70.1,73.6,Rework Required
+ECOM-058,2026-04-06,Ecommerce Application,Inventory Management,Database,High,AI Assisted,92.4,94.4,8,23.0,3.7,88.9,82.6,In Review
+ECOM-059,2026-04-11,Ecommerce Application,Delivery Tracking,Frontend,Medium,Human Only,79.9,67.0,10,22.5,7.5,46.6,60.9,In Review
+ECOM-060,2026-04-21,Ecommerce Application,Product Search,Backend,High,AI Assisted,86.3,78.7,5,32.2,3.9,86.5,73.4,Rework Required
+ECOM-061,2026-04-14,Ecommerce Application,Payment Integration,Security,Medium,Human Only,77.8,73.0,11,21.8,5.8,49.2,63.0,Rework Required
+ECOM-062,2026-04-22,Ecommerce Application,Recommendation Engine,DevOps,High,Human Only,91.3,75.1,11,23.1,13.1,65.6,70.8,Rework Required
+ECOM-063,2026-04-23,Ecommerce Application,Product Catalog,Backend,High,Human Only,72.9,78.7,30,33.9,22.5,82.1,68.2,Rework Required
+ECOM-064,2026-05-01,Ecommerce Application,User Registration,Testing,High,AI Assisted,88.5,82.0,5,25.1,2.5,89.4,76.9,Completed
+ECOM-065,2026-04-20,Ecommerce Application,Return Management,Testing,Medium,AI Assisted,89.6,86.2,4,10.4,2.2,65.1,76.0,Completed
+ECOM-066,2026-04-28,Ecommerce Application,Admin Dashboard,DevOps,Medium,AI Assisted,93.6,93.1,4,8.6,3.7,80.3,82.9,Completed
+ECOM-067,2026-04-28,Ecommerce Application,Analytics Dashboard,API,Medium,Human Only,88.9,89.5,15,14.4,10.6,54.6,74.3,Rework Required
+ECOM-068,2026-04-17,Ecommerce Application,Wishlist,Testing,Medium,AI Assisted,95.1,95.7,5,11.8,2.1,77.3,83.2,In Review
+ECOM-069,2026-04-11,Ecommerce Application,Delivery Tracking,Frontend,High,AI Assisted,92.5,80.8,4,30.8,4.7,76.4,74.2,Rework Required
+ECOM-070,2026-04-08,Ecommerce Application,Wishlist,DevOps,High,AI Assisted,96.2,86.8,12,32.1,10.7,78.9,77.7,In Review
+ECOM-071,2026-04-12,Ecommerce Application,Product Search,API,Low,AI Assisted,96.5,78.8,0,5.6,0.0,87.9,80.8,Rework Required
+ECOM-072,2026-04-05,Ecommerce Application,Inventory Management,Security,Medium,AI Assisted,95.9,89.2,2,9.9,2.3,68.4,79.7,Completed
+ECOM-073,2026-04-21,Ecommerce Application,Admin Dashboard,API,Medium,Human Only,71.8,76.0,12,21.9,10.4,58.8,64.1,Rework Required
+ECOM-074,2026-04-01,Ecommerce Application,Delivery Tracking,DevOps,Medium,Human Only,77.2,74.0,8,14.9,7.7,56.8,65.7,Rework Required
+ECOM-075,2026-04-26,Ecommerce Application,User Registration,Security,High,Human Only,88.0,87.6,13,48.6,7.6,76.0,72.5,In Review
+ECOM-076,2026-04-24,Ecommerce Application,Order Management,Security,Medium,AI Assisted,92.3,83.6,3,12.6,2.6,75.4,77.6,Completed
+ECOM-077,2026-04-09,Ecommerce Application,Customer Reviews,Database,High,AI Assisted,97.5,87.6,8,18.3,8.5,92.0,83.1,Rework Required
+ECOM-078,2026-04-26,Ecommerce Application,Wishlist,DevOps,Low,Human Only,88.6,83.1,1,6.5,1.2,84.2,79.0,In Review
+ECOM-079,2026-04-22,Ecommerce Application,Recommendation Engine,Frontend,Medium,AI Assisted,86.2,84.9,6,10.4,4.2,82.3,78.0,Completed
+ECOM-080,2026-04-02,Ecommerce Application,User Registration,Security,High,Human Only,79.1,82.5,19,33.3,9.4,71.0,69.3,Completed
+ECOM-081,2026-04-24,Ecommerce Application,Return Management,Frontend,Low,Human Only,84.1,83.6,5,5.1,3.7,82.8,77.8,Completed
+ECOM-082,2026-04-22,Ecommerce Application,Shopping Cart,DevOps,Medium,Human Only,78.6,88.8,7,15.8,3.4,79.2,75.6,In Review
+ECOM-083,2026-04-02,Ecommerce Application,Product Catalog,API,Medium,Human Only,70.2,70.3,6,15.1,7.1,70.6,65.0,In Review
+ECOM-084,2026-04-09,Ecommerce Application,Checkout,DevOps,High,AI Assisted,85.7,91.9,10,18.3,8.8,87.6,80.1,Completed
+ECOM-085,2026-04-05,Ecommerce Application,Analytics Dashboard,Database,Low,AI Assisted,94.6,88.6,0,2.7,0.0,60.6,78.6,Rework Required
+ECOM-086,2026-04-22,Ecommerce Application,Product Search,API,Medium,AI Assisted,85.5,89.1,6,13.3,6.8,85.5,79.4,In Review
+ECOM-087,2026-04-03,Ecommerce Application,User Registration,Frontend,Medium,Human Only,89.8,66.8,10,23.0,8.9,48.2,64.0,Completed
+ECOM-088,2026-04-04,Ecommerce Application,Invoice Generation,Testing,High,Human Only,75.1,77.6,22,35.8,22.8,62.2,64.3,Completed
+ECOM-089,2026-04-22,Ecommerce Application,Delivery Tracking,Backend,Medium,Human Only,75.5,72.8,13,14.6,15.1,55.2,64.5,Rework Required
+ECOM-090,2026-04-22,Ecommerce Application,Product Search,DevOps,Low,AI Assisted,84.1,79.1,0,3.3,0.0,93.5,78.6,Completed
+ECOM-091,2026-04-07,Ecommerce Application,Coupon Engine,DevOps,High,Human Only,91.2,80.0,27,52.5,23.3,59.1,67.2,Completed
+ECOM-092,2026-04-27,Ecommerce Application,Inventory Management,DevOps,Low,Human Only,81.8,85.2,6,6.3,7.1,78.8,76.7,Completed
+ECOM-093,2026-04-24,Ecommerce Application,User Registration,Backend,Medium,Human Only,72.4,68.6,7,22.5,3.2,71.3,64.1,Completed
+ECOM-094,2026-04-05,Ecommerce Application,Security Login,Backend,Medium,AI Assisted,87.2,94.9,4,8.8,4.4,80.9,81.7,Completed
+ECOM-095,2026-04-22,Ecommerce Application,Product Search,Database,Medium,AI Assisted,85.4,87.2,5,12.4,2.4,72.1,76.2,Rework Required
+ECOM-096,2026-04-01,Ecommerce Application,Product Catalog,Backend,Medium,Human Only,73.1,68.4,3,19.7,2.0,55.2,61.5,Rework Required
+ECOM-097,2026-04-01,Ecommerce Application,Payment Integration,Backend,Medium,Human Only,87.3,66.8,8,17.6,3.5,79.5,70.3,Rework Required
+ECOM-098,2026-04-23,Ecommerce Application,Wishlist,Security,Medium,AI Assisted,97.5,81.1,4,10.4,3.1,93.2,82.2,In Review
+ECOM-099,2026-04-03,Ecommerce Application,Email Notification,DevOps,Low,AI Assisted,95.9,91.4,1,3.5,1.0,67.8,81.3,Completed
+ECOM-100,2026-04-06,Ecommerce Application,Coupon Engine,Database,High,AI Assisted,85.2,88.8,5,26.6,4.6,86.6,77.5,Rework Required
