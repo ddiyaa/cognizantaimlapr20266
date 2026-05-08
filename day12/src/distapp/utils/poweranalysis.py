@@ -1,16 +1,22 @@
 #create power analysis using medicine_effect 
 import numpy as np
 import pandas as pd
+from statsmodels.stats.power import NormalIndPower
 from distapp.configurations.config import Config
 #power is assumed to be 0.8 and alpha is assumed to be 0.05
 def power_analysis(medicine_effect, alpha, power=0.8):
     # Calculate the required sample size using the effect size and power
-    from statsmodels.stats.power import TTestIndPower
-    analysis = TTestIndPower()
-    effect_size = calculate_medicine_effect(medicine_effect, 0)  # Assuming control effect is 0
-    sample_size = analysis.solve_power(effect_size=effect_size, alpha=alpha, power=power, alternative='two-sided')
-    return sample_size
+    
+    analysis = NormalIndPower()
 
+    sample_size = analysis.solve_power(
+        effect_size=medicine_effect,
+        power=power,
+        alpha=alpha,
+        ratio=1,
+        alternative="two-sided"
+    )
+    return sample_size
 def calculate_medicine_effect(medicine_effect, control_effect):
     # Calculate the effect size (Cohen's d)
     effect_size = (medicine_effect - control_effect) / np.sqrt((medicine_effect + control_effect) / 2)
