@@ -12,3 +12,4 @@ class Config:
     weather_path = os.getenv('weather_path')
     digits_path = os.getenv('digits_path')
     discount_path = os.getenv('discount_path')
+    census_path = os.getenv('census_path')
