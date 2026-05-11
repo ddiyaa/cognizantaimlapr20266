@@ -16,6 +16,6 @@ if __name__ == "__main__":
     df=pd.read_csv(discount_path)
     #print(df.head())
     result=discount_dotproduct(df)
-    #total savings
+    #total savings as scalar value
     total_savings=result['dot_product'].sum()
     print(f"Total savings from discounts: {total_savings}")
