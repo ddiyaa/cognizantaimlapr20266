@@ -11,3 +11,4 @@ class Config:
     #static variable to hold the weather path
     weather_path = os.getenv('weather_path')
     digits_path = os.getenv('digits_path')
+    discount_path = os.getenv('discount_path')
