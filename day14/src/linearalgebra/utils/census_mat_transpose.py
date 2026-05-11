@@ -8,6 +8,13 @@ def census_mat_transpose():
     census_data = pd.read_csv(Config.census_path)
     #create subset of census data with state, population
     df= census_data[['state','male_population','female_population']]
+    #set state as index
+    df.set_index('state', inplace=True)
+    #transpose the dataframe
+    df = df.transpose()
+    #group by state and sum the population
+    df = df.T.groupby(level=0).sum()
+    df = df.transpose()
     print(df.head())
 
 if __name__ == "__main__":
