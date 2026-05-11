@@ -10,3 +10,4 @@ load_dotenv(env_path)
 class Config:
     #static variable to hold the weather path
     weather_path = os.getenv('weather_path')
+    digits_path = os.getenv('digits_path')
