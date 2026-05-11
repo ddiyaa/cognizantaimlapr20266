@@ -17,4 +17,5 @@ if __name__ == "__main__":
                        [200, 255, 255]]], dtype=np.uint8)
     brightness = 50
     brightened_image = add_brightness(image, brightness)
+    print("Original Image:\n", image)
     print("Brightened Image:\n", brightened_image)
