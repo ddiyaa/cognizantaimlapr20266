@@ -13,13 +13,13 @@ if __name__ == "__main__":
     #test the function
     weather_path = Config.weather_path
     df=pd.read_csv(weather_path)
-    #create 3x3 matrix using temperature change, humidity and pressure change
+    #create 3x2 matrix using temperature change, humidity and pressure change
     #only take the first 3 rows of the dataframe
     df = df.head(3)
-    weather_mat = df[['temperature_c', 'humidity_percent', 'pressure_hpa']].values
+    weather_mat = df[['temperature_c', 'humidity_percent']].values
     #create matrix with temperature change
     weather_change_mat = df[['temperature_change_c']].values
-    #create unity matrix of size 3x3
+    #create unity matrix of size 3x2
     unity_mat = np.ones((weather_mat.shape))*weather_change_mat
 
     result = weather_change_mat_sub(weather_mat, unity_mat)
