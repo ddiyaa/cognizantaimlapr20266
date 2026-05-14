@@ -1,5 +1,6 @@
 #clean the data replace the missing values with mean and median
 import pandas as pd
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS as stop_words
 from linearalgebra.configurations.conf import Config
 
 def clean_data(file_path):
@@ -43,6 +44,26 @@ def clean_employee_data(file_path):
     cleaned_file_path = file_path.replace('.csv', '_cleaned.csv')   
     data.to_csv(cleaned_file_path, index=False)
     return data
+def clean_cyber_data(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        data = file.read()
+    #remove stop words from the data
+    documents=[f for f in data.split('\n') if f.strip()]
+    print(f"Number of documents: {len(documents)}")
+    #read word by word and remove stop words for NLP
+    #write the cleaned data to a new file    
+    new_array=[]
+    for doc in documents:
+       new_doc=  "".join([word for word in doc.split() 
+                 if word.lower() not in stop_words])
+       new_array.append(new_doc)
+    cleaned_file_path = file_path.replace('.txt', '_cleaned.txt')
+    with open(cleaned_file_path, 'w', encoding='utf-8') as file:
+        file.write("\n".join(new_array))       
+        
+
+    return documents
+     
 
 
 if __name__ == "__main__":
@@ -52,3 +73,6 @@ if __name__ == "__main__":
     print(cleaned_data.head())
     cleaned_employee_data = clean_employee_data(file_path_v1)
     print(cleaned_employee_data.head())
+    cyber_path=Config.cyber_path
+    cleaned_cyber_data = clean_cyber_data(cyber_path)
+    print(cleaned_cyber_data[:5])
