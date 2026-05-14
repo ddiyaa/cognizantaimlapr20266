@@ -25,7 +25,7 @@ def standard_normalization(file_path):
     plt.ylabel('Normalized Population')
     plt.grid()
     plt.show()
-    normalized_file_path = file_path.replace('.xlsx', '_normalized.xlsx')
+    normalized_file_path = file_path.replace('.xlsx', '_std_normalized.xlsx')
     df.to_excel(normalized_file_path, index=False)
     print(f"Normalized data saved to {normalized_file_path}")
 
