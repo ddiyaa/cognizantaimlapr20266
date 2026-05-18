@@ -13,3 +13,30 @@ def kafka_config():
         'ssl.key.location': str(BASE_DIR / "service.key"),
     }
     return conf
+
+def kafka_producer():
+    conf = kafka_config()
+    producer = Producer(conf)
+    return producer
+
+def publish_message(producer, topic, message):
+    producer.produce(topic, value=message, callback=message_delivery_report)
+    producer.flush()
+
+def message_delivery_report(err, msg):
+    if err is not None:
+        print(f'Message delivery failed: {err}')
+    else:
+        print(f'Message delivered to {msg.topic()} [{msg.partition()}] at offset {msg.offset()}')
+
+
+if __name__ == "__main__":
+    producer = kafka_producer()
+    topic = KafkaConfig.TOPIC_NAME
+    message = {
+    "movie_id": 1,
+    "title": "The Shawshank Redemption",
+    }
+    publish_message(producer, topic, message)
+
+    message_delivery_report(None, None)
