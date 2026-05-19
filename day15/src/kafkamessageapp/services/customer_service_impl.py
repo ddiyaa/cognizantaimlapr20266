@@ -1,5 +1,6 @@
 #create customer service implementation class to validate customer data retrieved from database 
 import great_expectations as gx
+import great_expectations.expectations as gxe
 import pandas as pd
 from kafkamessageapp.repositories.customer_repository_impl import CustomerRepositoryImpl
 from kafkamessageapp.services.customer_service import CustomerService
@@ -29,3 +30,14 @@ class CustomerServiceImpl(CustomerService):
 
         #validate customer data retrieved from database
         print("Customer data validated successfully")
+        # ─── EXERCISE 1: Schema — column presence & uniqueness ────────────────────────
+        print("── Exercise 1: Schema")
+        self.suite.add_expectation(gxe.ExpectColumnToExist(column="id"))
+        self.suite.add_expectation(gxe.ExpectColumnToExist(column="first_name"))
+        self.suite.add_expectation(gxe.ExpectColumnToExist(column="last_name"))
+        self.suite.add_expectation(gxe.ExpectColumnToExist(column="email"))
+        self.suite.add_expectation(gxe.ExpectColumnToExist(column="password"))
+        self.suite.add_expectation(gxe.ExpectColumnToExist(column="created_at"))
+        self.suite.add_expectation(gxe.ExpectColumnToExist(column="updated_at"))
+
+     
