@@ -15,6 +15,12 @@ Requires-Dist: pytest>=8.0.0
 Requires-Dist: confluent-kafka>=2.0
 Requires-Dist: kafka-python>=2.0
 Requires-Dist: python-dotenv>=0.20.0
+Requires-Dist: great-expectations>=0.15.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: pymysql>=1.0.0
+Requires-Dist: mysql-connector-python>=8.0.0
+Requires-Dist: sqlalchemy>=2.0.0
+Requires-Dist: pymongo>=4.0.0
 Provides-Extra: dev
 Requires-Dist: pytest>=8.0.0; extra == "dev"
 Requires-Dist: black>=24.0.0; extra == "dev"

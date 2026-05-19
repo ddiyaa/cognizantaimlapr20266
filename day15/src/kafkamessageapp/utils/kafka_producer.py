@@ -35,8 +35,8 @@ if __name__ == "__main__":
     producer = kafka_producer()
     topic = KafkaConfig.TOPIC_NAME
     message = {
-    "movie_id": 1,
-    "title": "The Shawshank Redemption",
+    "movie_id": 5,
+    "title": "Mission: Impossible - Fallout",
     }
     publish_message(producer, topic, message)
 

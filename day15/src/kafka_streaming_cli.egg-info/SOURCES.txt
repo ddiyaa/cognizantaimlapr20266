@@ -8,4 +8,5 @@ src/kafkamessageapp/__init__.py
 src/kafkamessageapp/configurations/__init__.py
 src/kafkamessageapp/configurations/conf.py
 src/kafkamessageapp/utils/__init__.py
+src/kafkamessageapp/utils/kafka_consumer.py
 src/kafkamessageapp/utils/kafka_producer.py

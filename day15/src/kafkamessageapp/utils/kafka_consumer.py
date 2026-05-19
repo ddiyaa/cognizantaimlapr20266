@@ -13,8 +13,8 @@ def kafka_config():
         'ssl.ca.location': str(BASE_DIR / "ca.pem"),
         'ssl.certificate.location': str(BASE_DIR / "service.cert"),
         'ssl.key.location': str(BASE_DIR / "service.key"),
-         "group.id": "comedy-movies-consumer-group",
-         "auto.offset.reset": "earliest",
+         "group.id": "action-movies-consumer-group",
+         "auto.offset.reset": "earliest"
     }
     return conf
 
@@ -27,8 +27,8 @@ def kafka_consumer():
 def consume_messages(consumer):
     try:
         while True:
-            msg = consumer.poll(1.0)
-
+            msg = consumer.poll(5.0)  # Poll for messages with a timeout of 5 seconds
+            print("Polling for messages...")    
             if msg is None:
              continue
 
