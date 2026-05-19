@@ -1,9 +1,10 @@
 #create customer service implementation class to validate customer data retrieved from database 
 import great_expectations as gx
+from kafkamessageapp.repositories.customer_repository_impl import CustomerRepositoryImpl
 from kafkamessageapp.services.customer_service import CustomerService
 class CustomerServiceImpl(CustomerService):
     def __init__(self):
-        self.customer_repository = CustomerServiceImpl()
+        self.customer_repository = CustomerRepositoryImpl()
         self.context = gx.get_context()
     
     def ge_suite(self):
