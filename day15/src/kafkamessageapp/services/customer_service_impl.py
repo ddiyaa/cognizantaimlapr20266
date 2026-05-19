@@ -17,7 +17,7 @@ class CustomerServiceImpl(CustomerService):
         self.suite = self.context.suites.add(
             gx.ExpectationSuite(name="customers_suite")
         )
-        return self.suite
+        return self.suite, self.batch_definition, self.data_asset, self.data_source
     
     def validate_customer_data(self):
         
@@ -30,7 +30,7 @@ class CustomerServiceImpl(CustomerService):
 
         #validate customer data retrieved from database
         print("Customer data validated successfully")
-        self.suite=self.ge_suite()
+        self.suite, self.batch_definition, self.data_asset, self.data_source = self.ge_suite()
         # ─── EXERCISE 1: Schema — column presence & uniqueness ────────────────────────
         print("── Exercise 1: Schema")
         self.suite.add_expectation(gxe.ExpectColumnToExist(column="id"))
@@ -41,5 +41,16 @@ class CustomerServiceImpl(CustomerService):
         self.suite.add_expectation(gxe.ExpectColumnToExist(column="created_at"))
         self.suite.add_expectation(gxe.ExpectColumnToExist(column="updated_at"))
         self.suite.add_expectation(gxe.ExpectColumnValuesToBeUnique(column="id"))
+        #validate customer data using expectation suite
+        validation_definition = self.context.validation_definitions.add(
+            gx.ValidationDefinition(
+                name="transactions_validation",
+                data=self.batch_definition,
+                suite=self.suite,
+            )
+        )
 
-     
+        batch      = self.batch_definition.get_batch(batch_parameters={"dataframe": self.df})
+        results    = validation_definition.run(batch_parameters={"dataframe": self.df})
+ 
+        print(results)  
