@@ -1,8 +1,8 @@
 #design orm for customer tablefrom sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy import Column, DateTime, String, Integer
 
-from ecommerce.configurations.mysql_conn import base
-from ecommerce.models.full_name import FullName
+from kafkamessageapp.configurations.mysql_conf import base
+from kafkamessageapp.models.full_name import FullName
 class Customer(base, FullName):
     __tablename__ = 'customer'
     id = Column(Integer, primary_key=True, autoincrement=True)
