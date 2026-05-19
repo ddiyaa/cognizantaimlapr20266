@@ -1,5 +1,6 @@
 #create customer service implementation class to validate customer data retrieved from database 
 import great_expectations as gx
+import pandas as pd
 from kafkamessageapp.repositories.customer_repository_impl import CustomerRepositoryImpl
 from kafkamessageapp.services.customer_service import CustomerService
 class CustomerServiceImpl(CustomerService):
@@ -19,7 +20,10 @@ class CustomerServiceImpl(CustomerService):
     
     def validate_customer_data(self):
         
-        self.customers = self.customer_repository.get_all_customers()   
+        self.customers = self.customer_repository.get_all_customers() 
+        #create pandas dataframe from customer data
+        self.df = pd.DataFrame([customer.__dict__ for customer in self.customers])
+        print(self.df.head())
         #check point schema validation for customer data
 
         #validate customer data retrieved from database
