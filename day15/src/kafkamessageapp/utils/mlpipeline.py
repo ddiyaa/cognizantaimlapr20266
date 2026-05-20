@@ -6,20 +6,20 @@ from sklearn.linear_model import LinearRegression
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import mean_squared_error, accuracy_score
+
 def create_pipeline(pizza_data):
     print("pipeie ready")
     # Define the features and target variable
-    X = pizza_data.drop("price", axis=1)
-    Y = pizza_data["price"]
+    X = pizza_data.drop("pizza_rate", axis=1)
+    Y = pizza_data["pizza_rate"]
     # Create a pipeline with imputation and linear regression
     #defining imputer is manual step replace it by pipeline
     #simple_inmputer = SimpleImputer(strategy="mean")
     # trainig and testing data
     xtrain, xtest, ytrain, ytest = train_test_split(X, Y,
                          test_size=0.3, 
-                         random_state=42,
-                         stratify=Y
+                         random_state=42                         
                          )
     pipeline = Pipeline([
         ("imputer", SimpleImputer(strategy="mean")),
@@ -29,13 +29,17 @@ def create_pipeline(pizza_data):
     pipeline.fit(xtrain, ytrain)
     print("Pipeline created and trained successfully")
     #create the predictions
+
     predictions = pipeline.predict(xtest)
-    print("Predictions made successfully")
-    print("Sample predictions:", predictions[:5])
+    print("Y predictions:", xtest["pizza_size"].values[:5], predictions[:5])
+    
     #evaluate the model    
-    mse = mean_squared_error(ytest, predictions)  
+    #mse = mean_squared_error(ytest, predictions)  
    
-    print(f"Mean Squared Error: {mse}")
+    #print(f"Mean Squared Error: {mse}")
+
+    #print accuracy score
+   # print(f"Accuracy Score: {accuracy_score(ytest, predictions)}")
     
 
 
