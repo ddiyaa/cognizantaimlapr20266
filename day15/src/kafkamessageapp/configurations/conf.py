@@ -14,3 +14,4 @@ class KafkaConfig:
     SECURITY_PROTOCOL = os.getenv('securityprotocol')
     client = MongoClient(os.getenv("conn_string"), tls=True,tlsCAFile=certifi.where())
     db = client["customerdb"]
+    pizza_path = os.getenv('pizza_path')

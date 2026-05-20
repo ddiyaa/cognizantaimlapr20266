@@ -18,6 +18,9 @@ dependencies = [
     "requests>=2.31",
     "confluent-kafka>=2.0",
     "kafka-python>=2.0",
+    "ydata-profiling>=4.0",
+    "setuptools>=65.0",
+    "sweetviz>=2.1",
 ]
 
 [project.optional-dependencies]

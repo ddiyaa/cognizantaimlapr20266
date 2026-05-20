@@ -21,6 +21,7 @@ src/linearalgebra/utils/eigen.py
 src/linearalgebra/utils/image_brightness_mat_add.py
 src/linearalgebra/utils/image_mat_inv.py
 src/linearalgebra/utils/img_trans_eigen.py
+src/linearalgebra/utils/kafka_consumer.py
 src/linearalgebra/utils/kafka_producer.py
 src/linearalgebra/utils/l2_norm.py
 src/linearalgebra/utils/minmax_norm.py
@@ -30,4 +31,6 @@ src/linearalgebra/utils/robust_scalar.py
 src/linearalgebra/utils/sales_mat_det.py
 src/linearalgebra/utils/search_algo.py
 src/linearalgebra/utils/standard_norm.py
+src/linearalgebra/utils/sweetviz_demo.py
 src/linearalgebra/utils/weather_change_mat_sub.py
+src/linearalgebra/utils/ydata_profile_demo.py

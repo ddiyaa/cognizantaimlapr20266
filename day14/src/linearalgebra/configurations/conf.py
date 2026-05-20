@@ -25,3 +25,5 @@ class Config:
     search_page_path = os.getenv('search_page_path')
     api_url = os.getenv('api_url')
     product_path = os.getenv('product_path')
+    report_path = os.getenv('report_path')
+    customer_data_path = os.getenv('customer_data_path')
