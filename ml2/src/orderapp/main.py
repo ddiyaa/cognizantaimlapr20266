@@ -1,5 +1,5 @@
-# Create app FIRST
 from fastapi import FastAPI
+
 app = FastAPI(
     title="🛒 E-commerce API",
     description="API for managing e-commerce operations",
@@ -7,18 +7,15 @@ app = FastAPI(
 )
 
 from orderapp.configurations.mysql_conf import engine, base
-
-#  IMPORT MODELS FIRST (VERY IMPORTANT)
 from orderapp.models.order import Order
-#create all the tables in the database
+
+# create tables
 base.metadata.create_all(bind=engine)
-#make api call to the customer controller
 
-from orderapp.controllers import order_controller
+# import router directly
+from orderapp.controllers.order_controller import order_router
 
-
-app.include_router(order_controller.order_router)
-
-
-
-
+# debug routes
+#for route in app.routes:
+    #print("ROUTE:", route.path, route.methods)
+app.include_router(order_router)

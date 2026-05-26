@@ -61,3 +61,21 @@ class OrderRepoImpl(OrderRepository):
             raise e
         finally:
             self.session.close()
+
+    def get_order_by_id(self, order_id: int) -> OrderResponse:
+        try:
+            order = self.session.query(Order).filter(Order.order_id == order_id).first()
+            if not order:
+                raise OrderException(f"Order with id {order_id} not found")
+            order_response = OrderResponse(
+                order_id=order.order_id,
+                customer_id=order.customer_id,
+                order_date=order.order_date.strftime("%Y-%m-%d %H:%M:%S"),
+                order_status=order.order_status,
+                order_total=order.order_total
+            )
+            return order_response
+        except OrderException as e:
+            raise e
+        finally:
+            self.session.close()

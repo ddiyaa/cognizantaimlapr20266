@@ -14,3 +14,5 @@ class OrderServiceImpl(OrderService):
 
     def get_all_orders(self) -> list[OrderResponse]:
         return self.order_repository.get_all_orders()
+    def get_order_by_id(self, order_id: int) -> OrderResponse:
+        return self.order_repository.get_order_by_id(order_id)
