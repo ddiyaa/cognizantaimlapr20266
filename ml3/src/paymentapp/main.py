@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 import consul
 from contextlib import asynccontextmanager
-from orderapp.configurations.config import CONSUL_HOST, CONSUL_PORT, SERVICE_NAME_1, SERVICE_ID_1, SERVICE_HOST_1, SERVICE_NAME_1, SERVICE_PORT_1, SERVICE_NAME_2, SERVICE_ID_2, SERVICE_HOST_2, SERVICE_PORT_2
+from paymentapp.configurations.config import CONSUL_HOST, CONSUL_PORT, SERVICE_NAME_1, SERVICE_ID_1, SERVICE_HOST_1, SERVICE_NAME_1, SERVICE_PORT_1, SERVICE_NAME_2, SERVICE_ID_2, SERVICE_HOST_2, SERVICE_PORT_2
 # --------------------------------
 # Lifespan (startup + shutdown)
 # --------------------------------
