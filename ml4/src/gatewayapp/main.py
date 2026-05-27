@@ -85,15 +85,19 @@ async def forward_request(
     order_id: int,
     request: Request
 ):
-    target_url = f"{service_url}/{resource}/{order_id}"
+    target_url = f"{service_url}/{resource}"
 
     print("Forwarding request to:", target_url)
 
     async with httpx.AsyncClient() as client:
+        #order id should be part of the http body, 
+        # not the url, since the gateway is forwarding the request to the service, and the service should be responsible for handling the order id
         response = await client.request(
             method=request.method,
             url=target_url,
-            params=request.query_params,
+            data={
+                "order_id": order_id
+            },            
             content=await request.body(),
             headers={
                 key: value
@@ -122,7 +126,7 @@ def home():
     }
 
 
-@app.post("/payments/{order_id}")
+@app.post("/payments")
 async def create_payment_gateway(order_id: int, request: Request):
     service_name = route_engine("POST", "payments")
     service_url = get_service_instance(service_name)
@@ -135,14 +139,3 @@ async def create_payment_gateway(order_id: int, request: Request):
     )
 
 
-@app.get("/payments/{order_id}")
-async def get_payment_gateway(order_id: int, request: Request):
-    service_name = route_engine("GET", "payments")
-    service_url = get_service_instance(service_name)
-
-    return await forward_request(
-        service_url=service_url,
-        resource="payments",
-        order_id=order_id,
-        request=request
-    )
