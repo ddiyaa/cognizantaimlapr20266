@@ -26,15 +26,27 @@ async def lifespan(app: FastAPI):
             "timeout": "5s"
         }
     )
+    c.agent.service.register(   
+        name=SERVICE_NAME_2,
+        service_id=SERVICE_ID_2,
+        address=SERVICE_HOST_2,
+        port=SERVICE_PORT_2,
+        check={
+            "http": f"http://{SERVICE_HOST_2}:{SERVICE_PORT_2}/health",
+            "interval": "10s",
+            "timeout": "5s"
+        }
+    )
 
-    print("✅ Order service registered with Consul")
+    print("✅ Both Payment services registered with Consul")
 
     yield
 
     # shutdown
     c.agent.service.deregister(SERVICE_ID_1)
+    c.agent.service.deregister(SERVICE_ID_2)
 
-    print("❌ Order service deregistered")
+    print("❌ Both Payment services deregistered")
 app = FastAPI(
     title="🛒 E-commerce API",
     description="API for managing e-commerce operations",
