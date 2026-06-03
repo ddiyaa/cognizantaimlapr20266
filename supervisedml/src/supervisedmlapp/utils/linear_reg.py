@@ -31,5 +31,13 @@ def linear_regression_model():
     
     print(f'Mean Squared Error: {mse}')
     print(f'R^2 Score: {r2}')
+
+    #print the coefficients of the model
+    print(f'Coefficients: {model.coef_}')
+    #print the intercept of the model
+    print(f'Intercept: {model.intercept_}')
     
     return model
+
+if __name__ == "__main__":
+    linear_regression_model()
