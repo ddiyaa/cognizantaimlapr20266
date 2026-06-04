@@ -6,6 +6,7 @@ from supervisedmlapp.configurations.conf import POPULATION_FILE_PATH
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
+import matplotlib.pyplot as plt
 def polynomial_regression_model():
     # Load the dataset
     data = pd.read_csv(POPULATION_FILE_PATH)
@@ -13,20 +14,17 @@ def polynomial_regression_model():
     # Define features and target variable
     X = data[['Year']] # Features
     y = data['Population']  # Target variable
-
-    #normalize the features
-    from sklearn.preprocessing import MinMaxScaler
-    scaler = MinMaxScaler()
-    X_scaled = scaler.fit_transform(X)
-    y_scaled = scaler.fit_transform(y.values.reshape(-1, 1))
+   
+    
+    
     
     # Split the dataset into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y_scaled, test_size=0.3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
      
     # Create a polynomial regression model
     # we will use degree 2 for the polynomial regression
    
-    polynomial_features = PolynomialFeatures(degree=5)
+    polynomial_features = PolynomialFeatures(degree=4)
     X_train_poly = polynomial_features.fit_transform(X_train)
     X_test_poly = polynomial_features.transform(X_test)
     model = LinearRegression()
@@ -42,26 +40,25 @@ def polynomial_regression_model():
     r2 = r2_score(y_test, y_pred)
     print(f'Mean Squared Error: {mse}')
     print(f'R^2 Score: {r2}')
-
-    #predict the population for the year 2050
-    year_2050 = [[2050]]
-    year_2050_scaled = scaler.transform(year_2050)  
-    year_2050_poly = polynomial_features.transform(year_2050_scaled)
-    population_2050_scaled = model.predict(year_2050_poly)
-    population_2050 = scaler.inverse_transform(population_2050_scaled)
-    print(f'Predicted population for the year 2050: {population_2050[0][0]}')
-    #find the difference between actual and predicted population for the year 2020
+    #predict the population for the year 2020
     year_2020 = [[2020]]
-    year_2020_scaled = scaler.transform(year_2020)
-    year_2020_poly = polynomial_features.transform(year_2020_scaled)
-    population_2020_scaled = model.predict(year_2020_poly)
-    population_2020 = scaler.inverse_transform(population_2020_scaled)
+    year_2020_poly = polynomial_features.transform(year_2020)
+    population_2020 = model.predict(year_2020_poly)
     actual_population_2020 = data[data['Year'] == 2020]['Population'].values[0]
-    difference = actual_population_2020 - population_2020[0][0]
+    difference = actual_population_2020 - population_2020[0]
     print(f'Actual population for the year 2020: {actual_population_2020}')
-    print(f'Predicted population for the year 2020: {population_2020[0][0]}')
+    print(f'Predicted population for the year 2020: {population_2020[0]}')
     print(f'Difference between actual and predicted population for the year 2020: {difference}')
 
+    #plot the regression line
+    plt.scatter(X, y, color='blue', label='Actual')
+    #min and max of X for plotting the regression line
+    #plt.plot(X.min(), y.min(), color='red', label='Predicted')
+    plt.xlabel('Year')
+    plt.ylabel('Population')
+    plt.title('Polynomial Regression')
+    plt.legend()
+    plt.show()
 
 if __name__ == "__main__":
     polynomial_regression_model()
