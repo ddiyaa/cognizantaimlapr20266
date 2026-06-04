@@ -7,6 +7,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from supervisedmlapp.configurations.conf import HOUSE_FILE_PATH
 import matplotlib.pyplot as plt
+from skl2onnx import convert_sklearn
+from skl2onnx.common.data_types import FloatTensorType
 import pickle
 def linear_regression_model():
     # Load the dataset
@@ -49,6 +51,24 @@ def linear_regression_model():
         pickle.dump(model, f)
 
     print(f'Model saved to {model_path}')
+
+    #create onnx model
+    # ---------- ONNX EXPORT ----------
+    # Step 1: describe the input — 1 feature (Area in sqft), any batch size
+    initial_type = [("float_input", FloatTensorType([None, 1]))]
+
+    # Step 2: convert the already-trained model
+    onnx_model = convert_sklearn(model, initial_types=initial_type)
+
+    # Step 3: save the ONNX model to a file
+    onnx_model_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'linear_regression_model.onnx')
+    os.makedirs(os.path.dirname(onnx_model_path), exist_ok=True)
+
+    #Step 4: write the ONNX model to disk 
+    with open(onnx_model_path, "wb") as f:
+        f.write(onnx_model.SerializeToString())
+
+    print(f'ONNX model saved to {onnx_model_path}')
 
     #plot the regression line
     plt.scatter(X_test, y_test, color='blue', label='Actual')
