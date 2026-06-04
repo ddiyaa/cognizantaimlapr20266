@@ -1,5 +1,5 @@
 #read linear regression pickle file
-import numpy as np
+import pandas as pd
 import pickle
 import os
 
@@ -10,8 +10,15 @@ with open(model_path, 'rb') as f:
     model = pickle.load(f)
 print(f'Model loaded from {model_path}')
 
+#print all the metrics of the model
+# Prove it's the same model
+print(f"Loaded slope    : {model.coef_[0]:.4f}")
+print(f"Loaded intercept: {model.intercept_:.4f}")
+print(f"Same object?    : {type(model).__name__}")
+
+
 #predict the price of a house with 3 bedrooms
 
-area = 1500
-predicted_price = model.predict(np.array([[area]]))
-print(f'Predicted price for a house with {area} sqft: {predicted_price[0]}')
+Area = 1500
+predicted_price = model.predict(pd.DataFrame({'Area': [Area]}))
+print(f'Predicted price for a house with {Area} sqft: {predicted_price[0]}')
