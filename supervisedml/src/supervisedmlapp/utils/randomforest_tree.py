@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
+from xgboost import data
 from supervisedmlapp.configurations.conf import CROP_FILE_PATH
 
 def random_forest_tree():
@@ -13,7 +14,8 @@ def random_forest_tree():
     data['LeafColor'] = data['LeafColor'].astype('category').cat.codes
     data['SpotPattern'] = data['SpotPattern'].astype('category').cat.codes
     data['Season'] = data['Season'].astype('category').cat.codes
-    data['Disease'] = data['Disease'].astype('category').cat.codes 
+   
+    
 
     # Assuming the last column is the target variable and the rest are features
     X = data.iloc[:, :-1]  # Features
@@ -37,6 +39,14 @@ def random_forest_tree():
     # Evaluate the model
     print("Classification Report:")
     print(classification_report(y_test, y_pred))
-    
+    disease_cat = data['Disease'].astype('category')
+    disease_mapping = dict(enumerate(disease_cat.cat.categories))
+    data['Disease'] = disease_cat.cat.codes
+    print("Disease Name and Encoded Value:")
+    for code, disease in disease_mapping.items():
+        print(f"{disease}: {code}")
     print("Confusion Matrix:")
     print(confusion_matrix(y_test, y_pred))
+
+if __name__ == "__main__":
+    random_forest_tree()
