@@ -11,6 +11,11 @@ def pca_analysis():
     # Load the dataset
     data = pd.read_csv(T_SHIRT_FILE_PATH)
 
+    #dataset information
+    print("Dataset Information:")
+    print(data.info())
+
+
     #apply label encoding to the target variable
    
     label_encoder = LabelEncoder()
