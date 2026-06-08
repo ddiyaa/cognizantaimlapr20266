@@ -46,6 +46,20 @@ def pca_analysis():
     # Apply PCA
     pca = PCA(n_components=2)  # Reduce to 2 principal components for visualization
     X_pca = pca.fit_transform(X_scaled) 
+    #print principal components
+    print("Principal Components:")
+    print(X_pca[:5])
+    #need how to arrive at the principal components from the original features    
+    print("PCA Components column name and values:") 
+    for i, component in enumerate(pca.components_):
+        print(f"Principal Component {i+1}:")
+        for feature, value in zip(X.columns, component):
+            print(f"  {feature}: {value}")
+    
+
+
+
+
     # Create a DataFrame for the PCA results
     pca_df = pd.DataFrame(data=X_pca, columns=['Principal Component 1', 'Principal Component 2'])
     pca_df['QualityClass'] = y  # Add the target variable for coloring
