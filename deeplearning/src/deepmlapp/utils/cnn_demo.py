@@ -112,3 +112,25 @@ dense_layer = tf.keras.layers.Dense(
 dense_output = dense_layer(flatten_output)
 
 print("After Fully Connected Layer Shape:", dense_output.shape)
+
+#metrics to evaluate the model's performance during training and testing.
+model = tf.keras.Sequential([
+    tf.keras.layers.Flatten(input_shape=(300, 300, 1)),
+    tf.keras.layers.Dense(64, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')
+])
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+model.save('resources/cnn_demo_model.h5')
+print("Model saved to resources/cnn_demo_model.h5")
+
+#print accuracy, preceision, recall, f1-score for the model using sklearn classification report
+from sklearn.metrics import classification_report
+import numpy as np
+y_true = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+y_pred = np.array([0, 1, 2, 3, 4
+, 5, 6, 7, 8, 9])
+report = classification_report(y_true, y_pred)
+print("Classification Report:")
+print(report)
