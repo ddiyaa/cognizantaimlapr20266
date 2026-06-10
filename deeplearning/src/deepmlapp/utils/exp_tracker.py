@@ -9,7 +9,7 @@ from deepmlapp.configurations.conf import LOAN_FILE_PATH
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
-
+import subprocess
 file_path = LOAN_FILE_PATH
 
 data = pd.read_csv(file_path)
@@ -40,13 +40,33 @@ with mlflow.start_run():
     ])
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     model.fit(x_scaled, y_scaled, epochs=10, batch_size=32)
-    
+
+    #save the model
+    model.save("loan_approval_model.h5")
+    mlflow.log_artifact("loan_approval_model.h5")
+
+    print("Model trained and saved successfully!")
+
+    #export the model to mlflow
+    model.export("loan_approval_model")
+    print("Model exported to MLflow successfully!")
+
+    #sub process to convert tensor flow model to onnx format
+  
+    subprocess.run(["python", "-m", "tf2onnx.convert", "--saved-model",
+                     "loan_approval_model", "--output", "loan_approval_model.onnx"])
+    print("Model converted to ONNX format successfully!")
+
+
+        
     #evaluate the model
     loss, accuracy = model.evaluate(x_scaled, y_scaled)
     print(f"Loss: {loss}, Accuracy: {accuracy}")
     
     mlflow.log_metric("loss", loss)
     mlflow.log_metric("accuracy", accuracy)
+
+print("Experiment logged successfully!")
 
 
 
