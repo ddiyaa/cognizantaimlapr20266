@@ -8,8 +8,10 @@ from tensorflow.keras import layers
 from deepmlapp.configurations.conf import LOAN_FILE_PATH
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
+import tf2onnx
 import pandas as pd
 import subprocess
+import sys
 file_path = LOAN_FILE_PATH
 
 data = pd.read_csv(file_path)
@@ -53,9 +55,12 @@ with mlflow.start_run():
 
     #sub process to convert tensor flow model to onnx format
   
-    subprocess.run(["python", "-m", "tf2onnx.convert", "--saved-model",
+    result = subprocess.run([sys.executable, "-m", "tf2onnx.convert", "--saved-model",
                      "loan_approval_model", "--output", "loan_approval_model.onnx"])
-    print("Model converted to ONNX format successfully!")
+    if result.returncode == 0:
+        print("Model converted to ONNX format successfully!")
+    else:
+        print("Model conversion to ONNX format failed!")
 
 
         
