@@ -32,9 +32,8 @@ model_checkpoint = keras.callbacks.ModelCheckpoint('best_model.h5', monitor='acc
 model.fit(x_train, y_train, epochs=20, 
           callbacks=[early_stopping, model_checkpoint],
           batch_size=64,
-          validation_data=(x_test, y_test),
-          stratify=y_train,
-          random_state=42
+          validation_split=0.2
+          
           )
 #evaluate the model on the test set
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
