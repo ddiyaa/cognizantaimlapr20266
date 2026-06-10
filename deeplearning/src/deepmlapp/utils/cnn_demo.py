@@ -78,3 +78,18 @@ plt.axis('off')
 plt.savefig('after_relu.png')
 plt.show()
 
+pool_output = tf.nn.max_pool2d(
+    input=relu_output,
+    ksize=[1, 2, 2, 1],
+    strides=[1, 2, 2, 1],
+    padding='SAME'
+)
+# Apply Max Pooling to reduce spatial dimensions and retain important features.
+print("After Pooling Shape:", pool_output.shape)
+
+plt.figure(figsize=(5,5))
+plt.imshow(tf.squeeze(pool_output))
+plt.title("After Max Pooling")
+plt.axis('off')
+plt.savefig('after_max_pooling.png')
+plt.show()
