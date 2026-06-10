@@ -53,7 +53,7 @@ conv_output = tf.nn.conv2d(
     padding='SAME'
 )
 '''
-Apply COnvolution Layer
+Apply Convolution Layer
 The convolution layer applies the filter to the image to detect edges and features.
 '''
 print("After Convolution Shape:", conv_output.shape)
@@ -64,3 +64,17 @@ plt.title("After Convolution")
 plt.axis('off')
 plt.savefig('after_convolution.png')
 plt.show()
+'''
+Apply ReLU Activation
+'''
+relu_output = tf.nn.relu(conv_output)
+
+print("After ReLU Shape:", relu_output.shape)
+
+plt.figure(figsize=(5,5))
+plt.imshow(tf.squeeze(relu_output))
+plt.title("After ReLU Activation")
+plt.axis('off')
+plt.savefig('after_relu.png')
+plt.show()
+
