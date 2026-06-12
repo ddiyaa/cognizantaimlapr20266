@@ -37,12 +37,13 @@ if __name__ == "__main__":
         soup = BeautifulSoup(text, 'html.parser')
         #extracting the quotes
         #find by xpath
-        quotes = soup.select('#content_inner > article > p')
-        for quote in quotes:
-            text = quote.get_text()
-            #author = quote.find('small', class_='author').get_text()
-            print(f"{text}")
-
+        text = soup.select('#content_inner > article > p')
+        #print(text[0].text)
+        #clean the text
+        cleaned_text = text[0].text.lower()
+        cleaned_text = re.sub(r'\s+', ' ', cleaned_text).strip()
+        cleaned_text = re.sub(r'[^\w\s]', '', cleaned_text)
+        print(cleaned_text)
     except Exception as e:
         print(str(e))
-    
+  
