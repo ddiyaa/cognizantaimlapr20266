@@ -7,6 +7,7 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from bs4 import BeautifulSoup
+from nltk.stem import PorterStemmer
 import requests
 
   
@@ -50,6 +51,12 @@ def stopword_removal(tokens):
     filtered_tokens = [token for token in tokens if token not in stop_words]
     return filtered_tokens
 
+def stemming(tokens):
+   
+    porter_stemmer = PorterStemmer()
+    stemmed_tokens = [porter_stemmer.stem(token) for token in tokens]
+    return stemmed_tokens
+
 if __name__ == "__main__":
     try:
         text = read_text_from_url(scrape_url)
@@ -61,6 +68,7 @@ if __name__ == "__main__":
         text = soup.select('#content_inner > article > p')
         tokens = create_tokens(text)
         tokens = stopword_removal(tokens)
+        tokens = stemming(tokens)
         #count the number of tokens
         print(f"Number of tokens: {len(tokens)}")
         print(f"Tokens: {tokens}")
