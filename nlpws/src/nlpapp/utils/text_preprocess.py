@@ -8,6 +8,7 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from bs4 import BeautifulSoup
 import requests
+  
 nltk.download("punkt")
 nltk.download("punkt_tab")
 nltk.download("stopwords")
@@ -30,8 +31,22 @@ def read_text_from_url(url):
             return response.text
         else:
             raise Exception(f"Failed to fetch data from {url}. Status code: {response.status_code}")
-    
 
+def create_tokens(text):
+    #print(text[0].text)
+    #clean the text
+    cleaned_text = text[0].text.lower()
+    cleaned_text = re.sub(r'\s+', ' ', cleaned_text).strip()
+    cleaned_text = re.sub(r'[^\w\s]', '', cleaned_text)
+    #print(cleaned_text)
+    #tokenization
+    tokens = word_tokenize(cleaned_text)
+    return tokens
+
+def stopword_removal(tokens):
+    stop_words = set(stopwords.words('english'))
+    filtered_tokens = [token for token in tokens if token not in stop_words]
+    return filtered_tokens
 
 if __name__ == "__main__":
     try:
@@ -42,14 +57,8 @@ if __name__ == "__main__":
         #extracting the quotes
         #find by xpath
         text = soup.select('#content_inner > article > p')
-        #print(text[0].text)
-        #clean the text
-        cleaned_text = text[0].text.lower()
-        cleaned_text = re.sub(r'\s+', ' ', cleaned_text).strip()
-        cleaned_text = re.sub(r'[^\w\s]', '', cleaned_text)
-        #print(cleaned_text)
-        #tokenization
-        tokens = word_tokenize(cleaned_text)
+        tokens = create_tokens(text)
+        tokens = stopword_removal(tokens)
         #count the number of tokens
         print(f"Number of tokens: {len(tokens)}")
         print(f"Tokens: {tokens}")

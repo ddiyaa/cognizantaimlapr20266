@@ -35,7 +35,8 @@ dependencies = [
      "wordcloud",
      "spacy",
      "transformers",
-     "torch"
+     "torch",
+     "stanford-corenlp"
      
     
 ]
