@@ -7,6 +7,7 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+from nltk.probability import FreqDist
 from bs4 import BeautifulSoup
 from nltk.stem import PorterStemmer
 import requests
@@ -62,6 +63,9 @@ def lemmatization(tokens):
     lemmatizer = WordNetLemmatizer()
     lemmatized_tokens = [lemmatizer.lemmatize(token) for token in tokens]
     return lemmatized_tokens
+def frequency_analysis(tokens):
+    freq_dist = FreqDist(tokens)
+    return freq_dist
 
 if __name__ == "__main__":
     try:
@@ -79,7 +83,8 @@ if __name__ == "__main__":
         #count the number of tokens
         print(f"Number of tokens: {len(tokens)}")
         print(f"Tokens: {tokens}")
-
+        freq_dist = frequency_analysis(tokens)
+        print(f"Frequency distribution: {freq_dist.most_common(10)}")
     except Exception as e:
         print(str(e))
   
