@@ -1,5 +1,5 @@
-#topic modeling using The Hindu article on Rahul Gandhi's accusations against BJP in Rajya Sabha polls.
-#https://www.thehindu.com/news/national/after-vote-chori-and-sarkar-chori-charges-rahul-gandhi-accuses-bjp-of-seat-chori-in-rajya-sabha-polls/article71089851.ece?cx_testId=127&cx_testVariant=cx_1&cx_artPos=1&cx_experienceId=EXPO56ZDYSGX&cx_experienceActionId=showRecommendationsD6E1OEQYOG3N57
+#topic modeling using lyrics from Lyrics.com
+#lyrics_url=https://www.lyrics.com/lyrics/choosin
 import os
 from dotenv import load_dotenv
 import requests
