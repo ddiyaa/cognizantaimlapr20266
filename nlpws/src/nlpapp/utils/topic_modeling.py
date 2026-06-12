@@ -8,16 +8,25 @@ from bs4 import BeautifulSoup
 env_path = os.path.join(os.path.dirname(__file__), '..', '.env')
 load_dotenv(dotenv_path=env_path)
 
-scrape_url = os.getenv("article_url")
+scrape_url = os.getenv("lyrics_url")
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+}
 
 def scrape_article(url):
-    response = requests.get(url)
+    response = requests.get(url,headers=headers,timeout=20)
     soup = BeautifulSoup(response.text, 'html.parser')
-    article_div = soup.select('#schemaDiv > p:nth-child(1)')  # Adjust the selector based on the actual HTML structure
-    if article_div:
-        return article_div[0].get_text(separator='\n').strip()
+    lyrics_div = soup.find('pre','lyric-body')
+    if lyrics_div:
+        return lyrics_div.get_text(separator='\n').strip()
     else:
-        raise Exception("Article not found on the page.")
+        raise Exception("Lyrics not found on the page.")
+    
+def topic_modeling(article):
+    # Placeholder for topic modeling implementation
+    # You can use libraries like Gensim or LDA for actual topic modeling
+    print("Topic modeling is not implemented yet.")
+
 if __name__ == "__main__":
     try:
         article = scrape_article(scrape_url)
