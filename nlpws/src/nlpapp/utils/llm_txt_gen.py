@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from anthropic import Anthropic, HUMAN_PROMPT, AI_PROMPT
 from google import genai
+from google.genai.types import GenerateContentConfig
 env_path = os.path.join(os.path.dirname(__file__),'..', '.env')
 load_dotenv(env_path)
 
@@ -28,8 +29,14 @@ gemini_api_key=os.getenv("gemini_api_key")
 client = genai.Client(api_key=gemini_api_key)
 
 response = client.models.generate_content(
-    model="gemini-2.5-flash",
-    contents="Tamil Nadu Cheif Minister?"
+    model="gemini-2.5-flash-lite",
+    contents="Tamil Nadu Chief Minister?",
+    config=GenerateContentConfig(
+        temperature=0.2,
+        max_output_tokens=200,
+        top_p=0.9,
+        top_k=40
+    )
 )
-print("Response from Gemini LLM:")
+print("Gemini response:")
 print(response.text)
