@@ -6,4 +6,7 @@ src/machinelearning.egg-info/requires.txt
 src/machinelearning.egg-info/top_level.txt
 src/nlpapp/__init__.py
 src/nlpapp/utils/__init__.py
+src/nlpapp/utils/ner_demo.py
+src/nlpapp/utils/sentiment_analysis.py
 src/nlpapp/utils/text_preprocess.py
+src/nlpapp/utils/topic_modeling.py

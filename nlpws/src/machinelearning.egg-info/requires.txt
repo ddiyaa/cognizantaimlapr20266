@@ -16,6 +16,7 @@ spacy
 transformers
 torch
 stanford-corenlp
+bertopic
 
 [dev]
 pytest>=8.2

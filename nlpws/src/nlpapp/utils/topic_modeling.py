@@ -1,63 +1,88 @@
-#topic modeling using lyrics from Lyrics.com
-#lyrics_url=https://www.lyrics.com/lyrics/choosin
 import os
 from dotenv import load_dotenv
 import requests
 from bs4 import BeautifulSoup
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.decomposition import LatentDirichletAllocation
-import nltk
 
-nltk.download('stopwords')
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import NMF
 
-env_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+env_path = os.path.join(os.path.dirname(__file__), "..", ".env")
 load_dotenv(dotenv_path=env_path)
 
 scrape_url = os.getenv("lyrics_url")
+
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    "User-Agent": "Mozilla/5.0"
 }
 
-def scrape_article(url):
-    response = requests.get(url,headers=headers,timeout=20)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    lyrics_div = soup.find('pre','lyric-body')
+
+def scrape_lyrics(url):
+    response = requests.get(url, headers=headers, timeout=20)
+    response.raise_for_status()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    lyrics_div = soup.find("pre", class_="lyric-body")
+
     if lyrics_div:
-        return lyrics_div.get_text(separator='\n').strip()
-    else:
-        raise Exception("Lyrics not found on the page.")
-    
+        return lyrics_div.get_text(separator="\n").strip()
+
+    raise Exception("Lyrics not found on page.")
+
+
+def split_lyrics(lyrics):
+    lines = lyrics.split("\n")
+
+    docs = [
+        line.strip()
+        for line in lines
+        if len(line.strip()) > 5
+    ]
+
+    return docs
+
+
 def topic_modeling(lyrics):
-    # Placeholder for topic modeling logic
-    # You can implement LDA or any other topic modeling technique here
-    #classify the lyrics into topics
-    vectorizer = CountVectorizer(
-    stop_words='english',
-    min_df=1,
-    max_df=1.0
-   )
+    docs = split_lyrics(lyrics)
 
+    if len(docs) < 2:
+        raise Exception("Need at least 2 lyric lines for topic modeling.")
 
-    X = vectorizer.fit_transform([lyrics])
+    vectorizer = TfidfVectorizer(
+        stop_words="english",
+        lowercase=True
+    )
 
-    lda = LatentDirichletAllocation(
-        n_components=3,
+    X = vectorizer.fit_transform(docs)
+
+    n_topics = min(3, len(docs))
+
+    model = NMF(
+        n_components=n_topics,
         random_state=42
     )
 
-    lda.fit(X)
+    model.fit(X)
 
     words = vectorizer.get_feature_names_out()
 
-    for idx, topic in enumerate(lda.components_):
-        print(f"\nTopic {idx+1}")
-        print([words[i] for i in topic.argsort()[-10:]])
+    print("\nDiscovered Topics:")
+
+    for topic_index, topic in enumerate(model.components_):
+        top_words = topic.argsort()[-5:][::-1]
+
+        print(f"\nTopic {topic_index + 1}:")
+        for i in top_words:
+            print(words[i])
 
 
 if __name__ == "__main__":
     try:
-        lyrics = scrape_article(scrape_url)
+        lyrics = scrape_lyrics(scrape_url)
+
+        print("\nLyrics:")
         print(lyrics)
+
         topic_modeling(lyrics)
+
     except Exception as e:
         print(f"Error: {e}")

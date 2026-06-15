@@ -36,7 +36,8 @@ dependencies = [
      "spacy",
      "transformers",
      "torch",
-     "stanford-corenlp"
+     "stanford-corenlp",
+     "bertopic"
      
     
 ]

@@ -21,6 +21,7 @@ Requires-Dist: spacy
 Requires-Dist: transformers
 Requires-Dist: torch
 Requires-Dist: stanford-corenlp
+Requires-Dist: bertopic
 Provides-Extra: nlp
 Requires-Dist: nltk>=3.9; extra == "nlp"
 Requires-Dist: gensim>=4.3; extra == "nlp"
